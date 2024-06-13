@@ -4,10 +4,61 @@
 
 ## Quick-start
 
-* `git clone` the repository and `cd` into the root directory.
-* For the exercise Jupyter notebooks
-  * create a virtual environment (recommended)  e.g. with [venv](https://docs.python.org/3/library/venv.html), [conda](https://docs.conda.io/en/latest/) or other.
-  * install python dependencies with `pip install -r requirements.txt` in a virtual environment. Note: the [fake-data-for-learning package](https://github.com/munichpavel/fake-data-for-learning) has some non-python dependencies; see its [installation instructions](https://github.com/munichpavel/fake-data-for-learning/blob/main/README.md#installation).
+
+### Obtaining the repository
+
+Either
+
+`git clone` the repository
+
+OR
+
+download a zipped-version of this repo from GitHub
+
+then `cd` into the created folder
+
+### Running the workshop notebooks in [noteebooks](notebooks/)
+
+#### Option 1, local installation
+
+* create a virtual environment (recommended)  e.g. with [venv](https://docs.python.org/3/library/venv.html), [conda](https://docs.conda.io/en/latest/) or other.
+* install python dependencies with `pip install -r requirements.txt` in a virtual environment. Note: the [fake-data-for-learning package](https://github.com/munichpavel/fake-data-for-learning) has some non-python dependencies; see its [installation instructions](https://github.com/munichpavel/fake-data-for-learning/blob/main/README.md#installation).
+
+#### Option 2, Google Colab
+
+If you don't mind giving Google access to even more of your data, another option is to use the Google Colab version of hosted notebooks.
+
+**Steps**
+
+1. either clone or download this repository as above
+1. Upload the repository folder to your Google Drive.
+1. To open a notebook in Colab, navigate in your google drive to the notebooks folder, and double click on the notebook you want to open. It should look something like this:
+![openining a notebook from google drive](readme-graphics/open-notebook-from-drive.png)
+1. At the top of each Colab notebook you want to run, add a cell and paste in the contents
+```python
+import os
+from google.colab import drive
+from google.colab import drive
+drive.mount('/content/drive')
+
+os.chdir('/content/drive/My Drive/risk-ai-workshop-main')
+# Debug: if you don't see the top level contents of https://github.com/munichpavel/risk-ai-workshop/tree/d78309e23a2200d6e8dc71f657cefd0693bab51b
+# from the below print statement, then something has gone wrong
+print(os.listdir())
+
+!pip install -r requirements.txt
+```
+
+It should look something like this (after you run it):
+
+![Additional first cell if using Colab](readme-graphics/colab-first-cell.png)
+
+Notes:
+
+* Google will ask you for permissions to access your Google Drive. Please consider carefully before you grant this access.
+* Since Colab already has many dependencies installed, you will likely get a message saying you will have to restart your runtime, hence losing any saved variable values. Once you are sure you have saved anything you don't want to lose, select "Restart Session"
+
+![colab message to restart session for installation of custom dependencies](readme-graphics/colab-restart-session-post-install.png)
 
 ## Workshop topics
 
@@ -31,9 +82,18 @@ Examples and exercises: [graphical models](notebooks/graphical-models-exercises.
 
 ## Grading scheme for University of Ljubljana Masters in Mathematical Finance
 
-The number of points for a correct solution for each exercise brings is equal to $2^{\mathrm{number\,of\,stars}}$. For a grade of 8 you have to get at least 6 points, for grade 9 at least 7 points and for 10 at least 8 points.
+### 2024 Workshop
 
-You have to solve one problem from each of the four sets of problems unless you solved one of the problems with three stars.
+Exercise are to be submitted per team to Professor Košir before or on June 24, 2024.
+
+The number of points for a correct solution for each exercise brings is equal to $2^{\mathrm{number\,of\,stars}}$.
+
+The grading for this seminar as part of the course is binary, i.e. "pass" or "no-pass". For a grade of "pass" your team will require
+
+1. at least 8 points, and
+1. at least one correctly solved exercise from each of the four sessions from [workshop topics](#workshop-topics) above.
+
+For an example of the 2nd criterion, to satisfy this criterion for the 2nd topic, [Discrete Geometry for Risk](#discrete-geometry-for-risk), you need to successfully solve at least one problem from one of the three exercise notebooks.
 
 ## Relate python packages
 
@@ -78,6 +138,23 @@ Once an initial release has been created for a new workshop, create subsequent t
 ## Release history
 
 Note: I do not follow [Semantic Versioning](https://semver.org/) for this project. For the first digit (in semver, `major`), I use the year of the target workshop, and for the last (in semver `patch`), I increment when a chunk of work is done towards giving the workshop. The middle digit (in semver, `minor`) stays on 0 until I give the workshop, when it bumps to 1. Fixes to the given workshop get reflected in the patch versions `yyyy.1.<patch-version>`.
+
+### 2024.1.4
+
+* Add missing references for adversariality lecture
+* Add google colab instructions
+* Update grading schema for 2024 workshop
+* Add more proof details from equalities in lecture on correlation and causality
+
+### 2024.1.3
+
+* Add additional output plus commentary for do vs non-do probabilities to `causal-models-exercises` notebook.
+
+### v2024.1.2
+
+* Add concluding slide to introductory presentation
+* Remove older version of causal model exercises notebook
+* Git ignore common virtual environment folders
 
 ### v2024.1.1
 

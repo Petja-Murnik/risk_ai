@@ -105,5 +105,10 @@ graphics/
 _*.md
 _*.ipynb
 
+<<<<<<< HEAD
 
 /myenv
+=======
+venv/
+.venv/
+>>>>>>> 8a87dd13384d60c75ae4d4bfb373cb85827bf4ba
