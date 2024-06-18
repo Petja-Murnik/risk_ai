@@ -77,17 +77,17 @@ _*.ipynb
 *.snm
 *.gz
 *.toc
-*.pdf
+#*.pdf
 *.fdb_latexmk
 *.fls
 *.bbl
 *.blg
-*.pdf
+
 
 # images, must force add if really needed
 *.dot
 graphics/
-*.html
+#*.html
 
 # data files, must force add if really needed
 *.csv
